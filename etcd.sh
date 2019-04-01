@@ -1,0 +1,1 @@
+etcd --data-dir=~/etcd.data --name=z-nuc-12 --initial-advertise-peer-urls http://192.168.0.138:2380 --listen-peer-urls http://192.168.0.138:2380  --advertise-client-urls http://192.168.0.138:2379 --listen-client-urls http://192.168.0.138:2379

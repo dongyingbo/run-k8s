@@ -1,0 +1,4 @@
+123, admin, 1, system:masters
+123, system:kube-controller-manager, 2
+123, system:kube-scheduler, 3, system:kube-scheduler
+123, system:node:z-nuc-12, 4, system:node

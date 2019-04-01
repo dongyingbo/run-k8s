@@ -1,0 +1,6 @@
+apiVersion: componentconfig/v1alpha1
+kind: KubeSchedulerConfiguration
+clientConnection:
+  kubeconfig: "./kube-scheduler-static-pw.kubeconfig"
+leaderElection:
+  leaderElect: true
