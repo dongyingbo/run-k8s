@@ -18,7 +18,7 @@
   --kubelet-https=true \
   --runtime-config=api/all \
   --service-account-key-file=/home/ubuntu/ca_files/service-account.pem \
-  --service-cluster-ip-range=10.0.0.0/24 \
+  --service-cluster-ip-range=10.10.0.0/24 \
   --service-node-port-range=30000-32767 \
   --tls-cert-file=/home/ubuntu/ca_files/kubernetes.pem \
   --tls-private-key-file=/home/ubuntu/ca_files/kubernetes-key.pem \

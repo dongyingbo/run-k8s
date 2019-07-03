@@ -1,13 +1,15 @@
 ~/go/src/github.com/kubernetes/kubernetes/_output/bin/kube-controller-manager \
   --address=0.0.0.0 \
-  --cluster-cidr=10.200.0.0/16 \
+  --cluster-cidr=10.20.0.0/16 \
   --cluster-name=kubernetes \
   --cluster-signing-cert-file=ca.pem \
   --cluster-signing-key-file=ca-key.pem \
   --kubeconfig=./kube-controller-mananger-static-pw.kubeconfig \
   --leader-elect=true \
-  --root-ca-file=ca.pem \
+  --service-cluster-ip-range=10.10.0.0/24 \
+  --use-service-account-credentials=false \
+  --v=4 \
   --service-account-private-key-file=service-account-key.pem \
-  --service-cluster-ip-range=10.0.0.0/24 \
-  --use-service-account-credentials=true \
-  --v=2
+  --allocate-node-cidrs=true
+  #--root-ca-file=ca.pem \
+  #--controllers "*"

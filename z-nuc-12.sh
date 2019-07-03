@@ -4,8 +4,7 @@
     --kubeconfig=z-nuc-12-static-pw.kubeconfig \
     --network-plugin=cni \
     --register-node=true \
-    --v=4 \
-    --cgroup-driver=cgroupfs \
+    --v=2 \
     --container-runtime=docker 
     # --container-runtime=remote \
     # --container-runtime-endpoint=/run/containerd/containerd.sock \

@@ -7,7 +7,8 @@
   --kubeconfig=kube-controller-manager.kubeconfig \
   --leader-elect=true \
   --root-ca-file=ca.pem \
-  --service-account-private-key-file=service-account-key.pem \
+  --service-account-private-key-file=service-account-key.pem # The provate key which is used by service account to create token \
   --service-cluster-ip-range=10.0.0.0/24 \
   --use-service-account-credentials=true \
+  --allocate-node-cidrs=true \
   --v=2

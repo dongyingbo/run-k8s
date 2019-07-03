@@ -1,0 +1,6 @@
+kind: KubeProxyConfiguration
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+clientConnection:
+  kubeconfig: "kube-proxy-static-pw.kubeconfig"
+mode: "iptables"
+clusterCIDR: "10.20.0.0/16"
