@@ -1,0 +1,5 @@
+af1713a0-db3a-41e5-92be-37a2dc668611, admin, 1, system:masters
+af1713a0-db3a-41e5-92be-37a2dc668611, system:kube-controller-manager, 2
+af1713a0-db3a-41e5-92be-37a2dc668611, system:kube-scheduler, 3, system:kube-scheduler
+af1713a0-db3a-41e5-92be-37a2dc668611, system:node:kubelet, 4, system:node
+af1713a0-db3a-41e5-92be-37a2dc668611, system:kube-proxy, 5

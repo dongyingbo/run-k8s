@@ -179,7 +179,7 @@ spec:
         - --ip-masq
         - --kube-subnet-mgr
         - --kube-api-url
-        - http://10.10.0.1:8080
+        - http://127.0.0.1:8080
         resources:
           requests:
             cpu: "100m"

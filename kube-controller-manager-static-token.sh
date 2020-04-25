@@ -1,10 +1,10 @@
-~/go/src/github.com/kubernetes/kubernetes/_output/bin/kube-controller-manager \
+kube-controller-manager \
   --address=0.0.0.0 \
   --cluster-cidr=10.20.0.0/16 \
   --cluster-name=kubernetes \
   --cluster-signing-cert-file=ca.pem \
   --cluster-signing-key-file=ca-key.pem \
-  --kubeconfig=./kube-controller-mananger-static-pw.kubeconfig \
+  --kubeconfig=./kube-controller-manager-static-token.kubeconfig \
   --leader-elect=true \
   --service-cluster-ip-range=10.10.0.0/24 \
   --use-service-account-credentials=false \

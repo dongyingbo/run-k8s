@@ -11,4 +11,5 @@ clusterDNS:
 #podCIDR: "10.21.0.0/16"
 resolvConf: "/run/systemd/resolve/resolv.conf"
 runtimeRequestTimeout: "15m"
-cgroupDriver: "systemd"
+#cgroupDriver: "systemd"
+cgroupDriver: "cgroupfs"

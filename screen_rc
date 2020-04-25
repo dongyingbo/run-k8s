@@ -1,0 +1,17 @@
+defscrollback 10000
+sessionname k8s
+
+screen -t etcd 
+stuff "bash ./etcd.sh^M"
+screen -t api
+stuff "bash ./kube-api-server-static-token.sh^M"
+screen -t controller 
+stuff "bash ./kube-controller-manager-static-token.sh^M"
+screen -t scheduler
+stuff "bash ./kube-scheduler-static-token.sh^M"
+screen -t proxy
+stuff "sudo bash ./kube-proxy.sh^M"
+screen -t kubelet
+stuff "sudo bash ./kubelet-static-token.sh^M"
+screen -t run_kubectl
+screen -t compile
