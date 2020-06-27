@@ -4,7 +4,7 @@
     --kubeconfig=kubelet-static-token.kubeconfig \
     --network-plugin=cni \
     --register-node=true \
-    --v=1 \
+    --v=7 \
     --container-runtime=docker \
     --fail-swap-on=false \
     --reserved-cpus=6,7 \
