@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-anti-affinity-1
+  labels:
+    security: S2
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command:
+    - /bin/sh
+    args: [-c, 'while true; do cat /dev/null > /logdir/access.log; sleep 10; done']
+    volumeMounts:
+    - mountPath: "/data"
+      name: my-csi-vol
+  volumes:
+    - name: my-csi-vol
+      persistentVolumeClaim:
+        claimName: pvc-fs

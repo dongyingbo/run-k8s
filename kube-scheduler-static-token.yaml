@@ -1,0 +1,15 @@
+apiVersion: kubescheduler.config.k8s.io/v1beta1
+kind: KubeSchedulerConfiguration
+clientConnection:
+  kubeconfig: "./kube-scheduler-static-token.kubeconfig"
+leaderElection:
+  leaderElect: true
+#algorithmSource:
+#  provider: "ClusterAutoScalerProvider"
+#profiles:
+#  - schedulerName: "mod-scheduler"
+#  - schedulerName: "mod-scheduler2"
+#    plugins:
+#      filter:
+#        enabled:
+#          - name: "NodeResourcesFit"

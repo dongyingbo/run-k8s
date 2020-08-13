@@ -1,4 +1,6 @@
-~/go/src/github.com/kubernetes/kubernetes/_output/bin/kube-apiserver  --advertise-address=192.168.0.138 --allow-privileged=true \
+kube-apiserver \
+  --advertise-address=192.168.0.1 \
+  --allow-privileged=true \
   --apiserver-count=1 \
   --audit-log-maxage=30 \
   --audit-log-maxbackup=3 \
@@ -6,20 +8,28 @@
   --audit-log-path=/var/log/audit.log \
   --authorization-mode=Node,RBAC \
   --bind-address=0.0.0.0 \
-  --client-ca-file=/home/ubuntu/ca_files/ca.pem \
-  --enable-admission-plugins=Initializers,NamespaceLifecycle,NodeRestriction,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota \
+  --enable-admission-plugins=NamespaceLifecycle,NodeRestriction,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota \
   --enable-swagger-ui=true \
-  --etcd-servers=http://127.0.0.1:2379 \
+  --etcd-servers=https://127.0.0.1:2379 \
   --event-ttl=1h \
-  --experimental-encryption-provider-config=/home/ubuntu/ca_files/encryption-config.yaml \
-  --kubelet-certificate-authority=/home/ubuntu/ca_files/ca.pem \
-  --kubelet-client-certificate=/home/ubuntu/ca_files/kubernetes.pem \
-  --kubelet-client-key=/home/ubuntu/ca_files/kubernetes-key.pem \
-  --kubelet-https=true \
-  --runtime-config=api/all \
-  --service-account-key-file=/home/ubuntu/ca_files/service-account.pem \
-  --service-cluster-ip-range=10.10.0.0/24 \
+  --runtime-config=api/all=true \
+  --service-cluster-ip-range="10.10.0.0/24" \
   --service-node-port-range=30000-32767 \
-  --tls-cert-file=/home/ubuntu/ca_files/kubernetes.pem \
-  --tls-private-key-file=/home/ubuntu/ca_files/kubernetes-key.pem \
-  --v=2
+  --v=1 \
+  --insecure-bind-address=0.0.0.0 \
+  --storage-media-type=application/json \
+  --service-account-key-file=./service-account.pem \
+  --client-ca-file=./ca.pem \
+  --etcd-cafile=./ca.pem \
+  --etcd-certfile=./kubernetes.pem \
+  --etcd-keyfile=./kubernetes-key.pem \
+  --kubelet-certificate-authority=./ca.pem \
+  --kubelet-client-certificate=./kubernetes.pem \
+  --kubelet-client-key=./kubernetes-key.pem \
+  --kubelet-https=true \
+  --service-account-key-file=./service-account.pem \
+  --tls-cert-file=./kubernetes.pem \
+  --tls-private-key-file=./kubernetes-key.pem
+  #--experimental-encryption-provider-config=encryption-config.yaml \
+  # --token-auth-file=./static-token.cvs \
+  #--kubelet-https=false \

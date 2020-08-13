@@ -1,0 +1,30 @@
+---
+- hosts: nucs
+  remote_user: alex
+  #become: yes
+  #become_user: root
+  tasks:
+    - name: install basic tools
+      apt:
+        pkg:
+          - git
+          - vim
+      become: yes
+      become_user: root
+    - name: install golang
+      unarchive:
+        src: https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz
+        dest: /usr/local
+        remote_src: yes
+      become: yes
+      become_user: root
+    - name: create golang dir
+      file:
+        path: /home/alex/go/src
+        state: directory
+    - name: git clone k8s
+      git:
+        repo: https://github.com/kubernetes/kubernetes
+        dest: /home/alex/go/src/github.com/kubernetes/kubernetes
+      
+      

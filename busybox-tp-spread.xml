@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-topo-8
+  labels:
+    busybox: topo
+spec:
+  priorityClassName: high-priority
+  topologySpreadConstraints:
+  - maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfiable: DoNotSchedule
+    labelSelector:
+      matchLabels:
+        busybox: topo
+      matchExpressions:
+        - {key: xyz, operator: In, values: []}
+  containers:
+  - name: busybox
+    image: busybox
+    resources:
+      requests:
+        cpu: "1"
+        memory: 6144Mi
+      limits:
+        cpu: "1"
+        memory: 6144Mi
+    command:
+    - /bin/sh
+    args: [-c, 'while true; do cat /dev/null > /logdir/access.log; sleep 10; done']

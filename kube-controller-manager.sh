@@ -1,14 +1,15 @@
-~/go/src/github.com/kubernetes/kubernetes/_output/bin/kube-controller-manager \
+kube-controller-manager \
   --address=0.0.0.0 \
-  --cluster-cidr=10.200.0.0/16 \
+  --cluster-cidr=10.20.0.0/16 \
   --cluster-name=kubernetes \
   --cluster-signing-cert-file=ca.pem \
   --cluster-signing-key-file=ca-key.pem \
-  --kubeconfig=kube-controller-manager.kubeconfig \
+  --kubeconfig=./kube-controller-manager.kubeconfig \
   --leader-elect=true \
-  --root-ca-file=ca.pem \
-  --service-account-private-key-file=service-account-key.pem # The provate key which is used by service account to create token \
-  --service-cluster-ip-range=10.0.0.0/24 \
-  --use-service-account-credentials=true \
+  --service-cluster-ip-range=10.10.0.0/24 \
+  --v=4 \
+  --service-account-private-key-file=service-account-key.pem \
   --allocate-node-cidrs=true \
-  --v=2
+  --use-service-account-credentials=true
+  #--root-ca-file=ca.pem \
+  #--controllers "*"

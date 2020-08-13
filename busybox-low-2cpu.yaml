@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-guaranteed-low-8
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    resources:
+      requests:
+        cpu: "1"
+        memory: 200Mi
+      limits:
+        cpu: "1"
+        memory: 200Mi
+    command:
+    - /bin/sh
+    args: [-c, 'while true; do cat /dev/null > /logdir/access.log; sleep 10; done']

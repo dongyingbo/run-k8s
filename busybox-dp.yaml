@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-dp
+  labels:
+    app: busybox-dp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busybox-dp
+  template:
+    metadata:
+      labels:
+        app: busybox-dp
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - busybox-dp
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: busybox
+        image: busybox
+        resources:
+          requests:
+            cpu: 1
+          limits:
+            cpu: 1
+        command:
+        - /bin/sh
+        args: [-c, 'while true; do cat /dev/null > /logdir/access.log; sleep 10; done']
+

@@ -1,0 +1,8 @@
+{
+  "apiVersion": "policy/v1beta1",
+  "kind": "Eviction",
+  "metadata": {
+    "name": "busybox-dp-655896fb4d-4nqgc",
+    "namespace": "default"
+  }
+}

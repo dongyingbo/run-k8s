@@ -1,5 +1,5 @@
 /home/alex/go/src/github.com/kubernetes/_output/bin/kubelet \
-    --config=kubelet-config.yaml \
+    --config=kubelet-config-static-token.yaml \
     --image-pull-progress-deadline=2m \
     --kubeconfig=kubelet-static-token.kubeconfig \
     --network-plugin=cni \

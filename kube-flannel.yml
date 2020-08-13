@@ -106,6 +106,7 @@ data:
   cni-conf.json: |
     {
       "name": "cbr0",
+      "cniVersion": "0.2.0",
       "plugins": [
         {
           "type": "flannel",
@@ -179,7 +180,9 @@ spec:
         - --ip-masq
         - --kube-subnet-mgr
         - --kube-api-url
-        - http://127.0.0.1:8080
+        - http://192.168.0.1:8080
+        - --etcd-endpoints
+        - http://192.168.0.1:4001
         resources:
           requests:
             cpu: "100m"
