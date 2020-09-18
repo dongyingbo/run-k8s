@@ -6,16 +6,17 @@ authentication:
   webhook:
     enabled: true
   x509:
-    clientCAFile: "./ca.pem"
+    clientCAFile: "cert/ca.pem"
 authorization:
   mode: Webhook
 clusterDomain: "cluster.local"
+# This need to be updated after coreDNS installed, this is address of coreDNS services in kube-system namespace
 clusterDNS:
-  - "10.10.0.182"
+  - "172.20.0.114"
 #podCIDR: "10.21.0.0/16"
 resolvConf: "/run/systemd/resolve/resolv.conf"
 runtimeRequestTimeout: "15m"
 #cgroupDriver: "systemd"
 cgroupDriver: "cgroupfs"
-tlsCertFile: "./alex-hp.pem"
-tlsPrivateKeyFile: "./alex-hp-key.pem"
+tlsCertFile: "cert/newnuc.pem"
+tlsPrivateKeyFile: "cert/newnuc-key.pem"

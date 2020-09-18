@@ -1,14 +1,16 @@
+source ./env.sh
+
 kube-controller-manager \
   --address=0.0.0.0 \
-  --cluster-cidr=10.20.0.0/16 \
+  --cluster-cidr=$CLUSTER_CIDR \
   --cluster-name=kubernetes \
-  --cluster-signing-cert-file=ca.pem \
-  --cluster-signing-key-file=ca-key.pem \
-  --kubeconfig=./kube-controller-manager.kubeconfig \
+  --cluster-signing-cert-file=$CERTDIR/ca.pem \
+  --cluster-signing-key-file=$CERTDIR/ca-key.pem \
+  --kubeconfig=$KUBECONFDIR/kube-controller-manager.kubeconfig \
   --leader-elect=true \
-  --service-cluster-ip-range=10.10.0.0/24 \
+  --service-cluster-ip-range=$SERVICE_CLUSTER_IP_RANGE \
   --v=4 \
-  --service-account-private-key-file=service-account-key.pem \
+  --service-account-private-key-file=$CERTDIR/service-account-key.pem \
   --allocate-node-cidrs=true \
   --use-service-account-credentials=true
   #--root-ca-file=ca.pem \

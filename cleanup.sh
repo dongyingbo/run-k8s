@@ -1,0 +1,2 @@
+rm cert/*
+rm kubeconfig/*
