@@ -14,16 +14,6 @@ spec:
       labels:
         app: busybox-dp
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - busybox-dp
-            topologyKey: kubernetes.io/hostname
       containers:
       - name: busybox
         image: busybox

@@ -75,6 +75,8 @@ cfssl gencert \
 
 echo kubelet client cert 
 
+for instance in $WORKER_NODES; do
+
 cat > ${instance}-csr.json <<EOF
 {
   "CN": "system:node:${instance}",
@@ -101,6 +103,8 @@ cfssl gencert \
   -hostname=${instance},${EXTERNAL_IP},${INTERNAL_IP} \
   -profile=kubernetes \
   ${instance}-csr.json | cfssljson -bare ${instance}
+
+done
 
 echo controller manager client cert
 
@@ -213,7 +217,7 @@ cfssl gencert \
   -ca=ca.pem \
   -ca-key=ca-key.pem \
   -config=ca-config.json \
-  -hostname=10.32.0.1,10.240.0.10,10.240.0.11,10.240.0.12,${KUBERNETES_PUBLIC_ADDRESS},127.0.0.1,${KUBERNETES_HOSTNAMES} \
+  -hostname=10.32.0.1,10.240.0.10,10.240.0.11,10.240.0.12,${KUBERNETES_PUBLIC_ADDRESS},127.0.0.1,${KUBERNETES_HOSTNAMES},${KUBERNETES_SERVICE_ADDRESS} \
   -profile=kubernetes \
   kubernetes-csr.json | cfssljson -bare kubernetes
 

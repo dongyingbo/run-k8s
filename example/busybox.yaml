@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: busybox-anti-affinity-1
+  name: busybox-test
   labels:
     security: S2
 spec:

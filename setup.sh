@@ -38,3 +38,7 @@ subjects:
     kind: User
     name: kubernetes
 EOF
+
+
+kubectl apply -f ./coredns.yaml
+echo !!!update kubelet dns server to coredns service object!!!

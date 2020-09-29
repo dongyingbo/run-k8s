@@ -12,7 +12,7 @@ authorization:
 clusterDomain: "cluster.local"
 # This need to be updated after coreDNS installed, this is address of coreDNS services in kube-system namespace
 clusterDNS:
-  - "172.20.0.114"
+  - "172.20.0.131"
 #podCIDR: "10.21.0.0/16"
 resolvConf: "/run/systemd/resolve/resolv.conf"
 runtimeRequestTimeout: "15m"

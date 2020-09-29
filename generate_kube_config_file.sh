@@ -2,6 +2,7 @@
 source ./env.sh
 
 # kubelet 
+for instance in $WORKER_NODES; do
 kubectl config set-cluster kubernetes-the-hard-way \
 	    --certificate-authority=$CERTDIR/ca.pem \
 	        --embed-certs=true \
@@ -21,6 +22,7 @@ kubectl config set-cluster kubernetes-the-hard-way \
 
       kubectl config use-context default --kubeconfig=$KUBECONFDIR/${instance}.kubeconfig
 
+done
 
 
 #kube proxy
